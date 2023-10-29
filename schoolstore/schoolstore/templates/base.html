@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="/static/store/images/favicon.png" type="image/x-icon">
+
+  <title>
+    Store
+  </title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="/static/store/css/bootstrap.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="/static/store/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="/static/store/css/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="index.html">
+          <span>
+            School Store
+          </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class=""></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">
+                Register
+              </a>
+            </li>
+              <li class="dropdown menu__item">
+              <a class="dropdown-toggle menu__link" data-toggle="dropdown" role="button">Department</a>
+              <ul class="dropdown-menu">
+                  <li><a href="https://en.wikipedia.org/wiki/Commerce">Commerce</a></li>
+                   <li><a href="https://en.wikipedia.org/wiki/Humanities">Humanities</a></li>
+                   <li><a href="https://en.wikipedia.org/wiki/Science">Science</a></li>
+                   <li><a href="https://en.wikipedia.org/wiki/Computer_science">Computer Science</a></li>
+                   <li><a href="https://en.wikipedia.org/wiki/Islamic_studies">Islamic Studies</a></li>
+              </ul>
+
+              </a>
+            </li>
+          </ul>
+          <div class="user_option">
+            <a href="{% url 'login' %}">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <span>
+                Login
+              </span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+
+    <section class="slider_section">
+      <div class="slider_container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="detail-box">
+                      <h1>
+                        Welcome To Our <br>
+                        School Store
+                      </h1>
+
+                      <a href="{% url 'login' %}">
+                        Login
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-5 ">
+                    <div class="img-box">
+                      <img src="/static/store/images/slider-img.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end slider section -->
+  </div>
+  <!-- end hero area -->
+
+  <!-- shop section -->
+
+  <section class="shop_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Latest Products
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="/static/store/images/color-pencil.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Colour Pencil
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $20
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="/static/store/images/craft-paper.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Craft Paper
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $30
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="/static/store/images/eraser.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Eraser
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $1
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="/static/store/images/exam-paper.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Exam Paper
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $4
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="/static/store/images/pen.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Pen
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $9
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="/static/store/images/pencil.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Pencil
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $7
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="/static/store/images/shapner.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Shapner
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $4
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="/static/store/images/sketch-pens.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Sketch Pens
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $45
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end shop section -->
+
+  <!-- saving section -->
+
+
+  <!-- end why section -->
+
+
+  <!-- gift section -->
+
+
+  <!-- end info section -->
+
+
+  <script src="/static/store/js/jquery-3.4.1.min.js"></script>
+  <script src="/static/store/js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <script src="/static/store/js/custom.js"></script>
+
+</body>
+
+</html>
