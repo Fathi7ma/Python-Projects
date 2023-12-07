@@ -1,0 +1,40 @@
+{% extends 'teacherbase.html'%}
+{% block content %}
+		<h2 class="text-center text-primary ">PARENT</h2>
+        <br>
+		<div class="container">
+			<div class="row">
+				{% for v in parent %}
+				<div class="col-md-offset-3 col-md-6">
+              <table class="table table-bordered table-striped table-hover">
+			
+		<tr>
+		<th style="width:50%">NAME</th>
+		<td style="width:50%"> {{ v.Name }} </td>
+		</tr>
+		<tr>
+		<th>GENDER</th>
+		<td> {{ v.Gender }} </td>
+		</tr>
+		<tr>
+			<th>ADDRESS</th>
+			<td> {{ v.Address }} </td>
+			</tr>
+		<tr>
+		<th>PHONENO</th>
+		<td> {{ v.Phoneno }}</td>
+		</tr>	
+		<tr>
+			<td colspan="2" class="text-center">
+		<a href="{% url 'Parentdetails' v.id %}" class="btn btn-info">Details</a></td>
+		</tr>
+	
+	</table>
+	</div>
+	{% endfor %}
+	</div>
+	</div>
+	{% endblock %}
+		
+
+

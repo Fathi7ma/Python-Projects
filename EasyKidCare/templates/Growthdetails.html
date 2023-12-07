@@ -1,0 +1,122 @@
+{% extends 'teacherbase.html'%}
+{% block content %}
+        <form method="post" action="{% url 'GrowthDetailsAction' %}">
+        {% csrf_token %}
+        <h2 class="text-center text-primary ">GROWTH DETAILS</h2>
+        <br>
+        <div class="container w-50 mt-2">
+
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+        <table>
+            <tr>
+                <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" id="name">
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <label>Date_of_birth</label>
+                <input type="date" name="dob" class="form-control" id="dob">
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <label>Birth Regno</label>
+                <input type="text" name="reg_no" class="form-control" id="reg_no">
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <label>Father's Name</label>
+                <input type="text" name="father" class="form-control" id="father">
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <label>Mother's Name</label>
+                <input type="text" name="mother" class="form-control" id="mother">
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <label>Family survey no</label>
+                <input type="text" name="survey" class="form-control" id="survey">
+                </div>
+            </tr>
+            <tr>
+                <div class="row">
+                    <div class="col-md-12 text-center mt-4">
+                    <input type="submit" class="btn btn-primary" value="submit" onclick="return validation()">
+                    </div>
+            </tr>
+        </table>
+        </div>
+        </div>
+        </div>
+        </form>
+
+    {% if messages %}
+    {% for msg in messages %}
+    <script>
+        alert("{{msg}}")
+    </script>
+    {% endfor %}
+    {% endif %}
+    <script>
+        function validation()
+            {
+        debugger;
+                    var alpha=/^[a-zA-Z]+$/;
+                    var num=/^[0-9]+$/;
+                 
+                    var Name=document.getElementById('name');
+                    var Date_of_birth=document.getElementById('dob');
+                    var Birth_reg_no=document.getElementById('reg_no');
+                    var Fathername=document.getElementById('father');
+                    var Mothername=document.getElementById('mother');
+                    var Family_survey_regno=document.getElementById('survey');
+                
+        
+        
+        
+        
+                    if(name.value.length==0)
+                    {
+                        alert('Enter a Name');
+                        return false;
+                    }
+                    else if(dob.value.length==0)
+                    {
+                        alert('Enter a Dob');
+                        return false;
+                    }
+                    else if(reg_no.value.length==0)
+                    {
+                        alert('Enter a Reg_no');
+                        return false;
+                    }
+                    else if(father.value.length==0)
+                    {
+                        alert('Enter a Father');
+                        return false;
+                    }
+                    else if(mother.value.length==0)
+                    {
+                        alert('Enter a Mother');
+                        return false;
+                    }
+                    else if(survey.value.length==0)
+                    {
+                        alert('Enter a Survey');
+                        return false;
+                    }
+        
+                else 	
+                    {
+                        return true;
+                    }
+        }
+        </script>
+    {% endblock %}

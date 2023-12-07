@@ -1,0 +1,37 @@
+{% extends 'adminbase.html'%}
+{% block content %}
+    <h2 class="text-center text-primary ">EVENT</h2>
+    <br>
+    <div class="container">
+        <div class="row">
+            {% for v in Events %}
+            <div class="col-md-offset-3 col-md-6">
+          <table class="table table-bordered table-striped table-hover">
+          
+    <tr>
+    <th style="width:50%">Event_Name</th>
+    <td style="width:50%"> {{ v.Event_name }} </td>
+    </tr>
+    <tr>
+    <th>Description</th>
+    <td> {{ v.Description }} </td>
+    </tr>
+    <tr>
+    <th>Venue</th>
+    <td> {{ v.Venue}} </td>
+    </tr>
+    <tr>
+    <th>Date</th>
+    <td> {{v.Date}} </td>
+    </tr>
+    <tr>
+    <th>Food</th>
+    <td> {{ v.Food}} </td>
+    </tr>	
+  
+</table>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

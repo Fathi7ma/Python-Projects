@@ -1,0 +1,98 @@
+{% extends 'parentbase.html'%}
+{% block content %}
+        <form method="post" action="{% url 'SponsershipAction' %}">
+        {% csrf_token %}
+        <h2 class="text-center text-primary ">SPONSERSHIP</h2>
+    <br>
+    <div class="container w-50 mt-2">
+
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+        <table>
+            <tr>
+                <div class="form-group">
+                <label>SponsershipName</label>
+                <input type="text" name="sponsership" class="form-control" id="sponsername">
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <label>Job</label>
+                <input type="text" name="job" class="form-control" id="job">
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <label>Address</label>
+                 <textarea name="address" rows="4" column="4" class="form-control" id="address"></textarea>
+                 </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <label>SponserItem</label>
+                <input type="text" name="sponseritem" class="form-control" id="sponseritem">
+            </tr>
+            <tr>
+                <div class="row">
+                    <div class="col-md-12 text-center mt-4">
+                <input type="submit" class="btn btn-primary" value="submit" onclick="return validation()">
+                </div>
+            </tr>
+        </table>
+        </div>
+        </div>
+        </div>
+        </form>
+    </body>
+    {% if messages %}
+    {% for msg in messages %}
+    <script>
+        alert("{{msg}}")
+    </script>
+    {% endfor %}
+    {% endif %}
+    <script>
+        function validation()
+            {
+        debugger;
+                    var alpha=/^[a-zA-Z]+$/;
+                    var num=/^[0-9]+$/;
+                 
+                    var SponsershipName=document.getElementById('sponsername');
+                    var Job=document.getElementById('job');
+                    var Address=document.getElementById('address');
+                    var sponseritem=document.getElementById('sponseritem');
+                
+        
+        
+        
+        
+                    if(sponsername.value.length==0)
+                    {
+                        alert('Enter a Sponsername');
+                        return false;
+                    }
+                    else if(job.value.length==0)
+                    {
+                        alert('Enter a Job');
+                        return false;
+                    }
+                    else if(address.value.length==0)
+                    {
+                        alert('Enter a Address');
+                        return false;
+                    }
+                    else if(sponseritem.value.length==0)
+                    {
+                        alert('Enter a Sponseritem');
+                        return false;
+                    }
+        
+                else 	
+                    {
+                        return true;
+                    }
+        }
+        </script>
+	
+    {% endblock %}

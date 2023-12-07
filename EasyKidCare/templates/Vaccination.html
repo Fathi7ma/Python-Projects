@@ -1,0 +1,92 @@
+{% extends 'parentbase.html'%}
+{% block content %}
+        <form method="post" action="{% url 'VaccinationAction' %}">
+        {% csrf_token %}
+        <h2 class="text-center text-primary ">VACCINATION</h2>
+        <br>
+        <div class="container w-50 mt-2">
+
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                    {% for v in vace %}
+                    
+        <table>
+            <tr>
+                <input type="hidden" name="id"  value="{{v.id}}">
+            </tr>
+            {% endfor %}
+            <tr>
+                <div class="form-group">
+                <label>Date</label>
+                <input type="date" name="date" class="form-control" id="date" value="{{ v.date }}">
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <label>Vaccination Name</label>
+                <textarea name="vaccinationname" class="form-control" id="vaccinationname" value="{{ v.vaccinationname }}"></textarea>
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <label>Place</label>
+                <input type="text" name="place" class="form-control" id="place" value="{{ v.place }}">
+                </div>
+            </tr>
+            <tr>
+                <div class="row">
+                    <div class="col-md-12 text-center mt-4">
+                    <input type="submit" class="btn btn-primary" value="submit" onclick="return validation()">
+                    </div>
+            </tr>
+        </table>
+        </div>
+        </div>
+        </div>
+        </form>
+
+    {% if messages %}
+    {% for msg in messages %}
+    <script>
+        alert("{{msg}}")
+    </script>
+    {% endfor %}
+    {% endif %}
+    <script>
+        function validation()
+            {
+        
+                    var alpha=/^[a-zA-Z]+$/;
+                    var num=/^[0-9]+$/;
+                 
+                    var Date=document.getElementById('date');
+                    var VaccinationName=document.getElementById('vaccinationname');
+                    var Place=document.getElementById('place');
+                
+                
+        
+        
+    
+                    if(date.value.length==0)
+                    {
+                        alert('Enter a Date');
+                        return false;
+                    }
+                    else if(vaccinationname.value.length==0)
+                    {
+                        alert('Enter a Vaccinationname');
+                        return false;
+                    }
+                    else if(place.value.length==0)
+                    {
+                        alert('Enter a Place');
+                        return false;
+                    }
+        
+                else 	
+                    {
+                        return true;
+                    }
+        }
+        </script>
+  {% endblock %}

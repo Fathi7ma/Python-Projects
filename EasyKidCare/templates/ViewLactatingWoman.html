@@ -1,0 +1,52 @@
+{% extends 'teacherbase.html'%}
+{% block content %}
+        <h2 class="text-center text-primary mt-5 mb-3">LACTATING WOMAN'S DETAILS</h2>
+        <br>
+        <div class="container">
+            <div class="row">
+                {% for v in woman %}
+                <div class="col-md-offset-3 col-md-6">
+              <table class="table table-bordered table-striped table-hover">
+           
+		<tr>
+        <th style="width:50%">Name</th>
+        <td style="width:50%"> {{ v.Name }} </td>
+        </tr>
+        <tr>
+            <th>Date of Birth</th>
+            <td> {{ v.Dob }} </td>
+            </tr>
+        <tr>
+        <th>Phoneno</th>
+        <td> {{ v.Phoneno }} </td>
+        </tr>
+        <tr>
+        <th>Delivery Date</th>
+        <td> {{ v.Deliverydate}} </td>
+        </tr>
+        <tr>
+            <th>Infant Gender</th>
+            <td> {{ v.Infantgender}} </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+            <a href="{% url 'DeleteLactatingWoman' v.id %}" class="btn btn-danger mr-2" style="margin-right:25px">Delete
+            <a href="{% url 'LactatingWomanUpdate' v.id %}" class="btn btn-success mr-2" style="margin-right:25px">Edit
+            <a href="{% url 'ViewsTHR' v.id %}" class="btn btn-secondary mr-2">THR
+            </td>
+            </tr>
+		
+	
+        </table>
+        </div>
+        {% endfor %}
+        </div>
+        </div>
+ {% if messages %}
+{% for msg in messages %}
+<script>
+alert("{{msg}}")
+</script>
+{% endfor %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'teacherbase.html'%}
+{% block content %}
+    <form method="post" action="{% url 'LactatingWomanUpdateAction' %}">
+    {% csrf_token %}
+    <h2 class="text-center text-primary ">LACTATING WOMAN'S DETAILS</h2>
+    <br>
+    <div class="container w-50 mt-2">
+
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+        <table>
+        {% for v in woman %}
+        <input type="hidden" name="id"  value="{{v.id}}">
+            <tr>
+            <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name"class="form-control" id="name" value="{{v.Name}}">
+            </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" name="dob" class="form-control" id="dob" value="{{v.Dob}}">
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <label>Mobileno</label>
+                    <input type="text" name="Phoneno" class="form-control" id="Phoneno" value="{{v.Phoneno}}">
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <label>Delivery Date</label>
+                    <input type="date" name="deliverydate" class="form-control" id="deliverydate" value="{{v.Deliverydate}}">
+                </div>
+            </tr>
+            <tr>
+
+                <div class="form-group">
+                    <label>Infant Gender</label>
+
+                            <input type="radio" name="infantgender" id="infantgender" value="male">Male
+                            <input type="radio" name="infantgender"  id="infantgender" value="female">Female
+                        </div>
+                    </tr>
+
+            <tr>
+                <div class="row">
+                    <div class="col-md-12 text-center mt-4">
+            <input type="submit"  class="btn btn-primary" onclick="return validation()" value="update" >
+            </div>
+            {% endfor %}
+            </table>
+            </div>
+            </div>
+            </div>
+            </form>
+           
+{% if messages %}
+{% for msg in messages %}
+<script>
+alert("{{msg}}")
+</script>
+{% endfor %}
+{% endif %}
+{% endblock %}

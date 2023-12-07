@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% block content %}
+    <h2 class="text-center text-primary ">INDEX</h2>
+    <br>
+    <div class="container w-50 mt-2">
+<li><a href="{% url 'login' %}">Login</a></li>
+<li><a href="{% url 'register' %}">Teacher</a></li>
+<li><a href="{% url 'parent' %}">Parent</a></li>
+{% if messages %}
+{% for msg in messages %}
+<script>
+    alert("{{msg}}")
+</script>
+{% endfor %}
+{% endif %}
+</div>
+{% endblock %}

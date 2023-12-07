@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+{% block content %}
+
+
+    <form method="post" action="{% url 'loginAction' %}">
+        {% csrf_token %}
+        <h2 class="text-center text-primary ">LOGIN</h2>
+        <br>
+        <div class="container w-50 mt-2">
+
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                    <table>
+                        <tr>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" name="username" class="form-control">
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" name="password" class="form-control">
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="row">
+                                <div class="col-md-12 text-center mt-4">
+                                    <input type="Submit" class="btn btn-primary" value="Submit">
+                                </div>
+                        </tr>
+                        <tr>
+                            <div class="row">
+                                <div class="col-md-12 text-center mt-4">
+                                    <a href="{% url 'ForgotPassword' %}">Forgotpassword</a>
+                                </div>
+                            </div>
+
+                        </tr>
+                    </table>
+                    </div>
+                    </div>
+                </div>
+    </form>
+    {% endblock %}

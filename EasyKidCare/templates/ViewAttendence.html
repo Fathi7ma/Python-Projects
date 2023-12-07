@@ -1,0 +1,56 @@
+{% extends 'teacherbase.html'%}
+{% block content %}
+      <h2 class="text-center text-primary ">ATTENDENCE</h2>
+      <br>
+      <form method="POST" action="{% url 'searchbydate' %}">
+            {% csrf_token %}
+            <div class="container">
+                  <div class="row">
+                        <div class="col-md-offset-3 col-md-6" style="margin-bottom:30px ;">
+                              <div class="row">
+                                    <div class="col-md-8">
+                                          <input type="date" name="date" class="form-control mt-2">
+      
+                                    </div>
+                                    <div class="col-md-4 text-right">
+                                          <input type="submit" value="Search" class=" btn btn-primary mt-2">
+      
+                                    </div>
+                              </div>
+                        </div>
+                  <div class="col-md-offset-3 col-md-6">
+            <table class="table table-bordered table-striped table-hover">
+                  <tr style="color:white;background-color:#337ab7">
+                        <th>Present Students</th>
+                  </tr>
+                        {% for p in present %}
+                  <tr>
+                  <td>{{ p.Studentid.Name }}</td>
+            </tr>
+            {% endfor %}
+            </table>
+            </div>
+            </div>
+            </div>
+            <div class="container">
+                  <div class="row">
+                 
+                        <div class="col-md-offset-3 col-md-6">
+                        <table class="table table-bordered table-striped table-hover">
+                        <tr style="color:white;background-color:#337ab7">  
+                <th>Absent Students</th>
+            </tr> 
+                {% for a in absent %}
+                  <tr>
+                  <td>{{ a.Studentid.Name }}</td>
+                  </tr>
+                  {% endfor %}
+            
+            </table>
+
+      </form>
+      </div>
+  
+      </div>
+      </div>
+      {% endblock %}

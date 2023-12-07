@@ -1,0 +1,21 @@
+{% extends 'teacherbase.html'%}
+{% block content %}
+    <h2 class="text-center text-primary ">TAKE HOME RATION</h2>
+    <br>
+    <div class="col-md-offset-3 col-md-6">
+        {% for v in thr %}
+        <table class="table table-bordered table-striped table-hover">
+            <tr>
+
+                <th style="width:50%">Item</th>
+                <td style="width:50%"> {{ v.Thr.Item }} </td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td> {{ v.Thr.Quantity }} </td>
+                </tr>
+                
+                </table>
+                {% endfor %}
+                </div>
+                {% endblock %}

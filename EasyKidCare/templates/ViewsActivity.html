@@ -1,0 +1,36 @@
+{% extends 'teacherbase.html'%}
+{% block content %}
+        <h2 class="text-center text-primary ">ACTIVITY</h2>
+        <br>
+        <div class="container">
+            <div class="row">
+                {% for v in kids %}
+                <div class="col-md-offset-3 col-md-6">
+          
+            <table class="table table-bordered table-striped table-hover">
+                <tr>
+                    <th style="width:50%">Date</th>
+                    <td style="width:50%"> {{v.Date}} </td>
+                    </tr>
+                <tr>
+                    <th>Item</th>
+                    <td> {{ v.Item }} </td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td> {{ v.Description }} </td>
+                </tr>
+                <tr>
+                    <th>File</th>
+                    <td><img src="{{ v.File.url }}" height="100px" width="100px"></td>
+                </tr>
+                <td colspan="2" class="text-center">
+                <a href="{% url 'DeleteActivity' v.id %}" class="btn btn-danger mr-2" style="margin-right:25px">Delete
+                <a href="{% url 'ActivityUpdate' v.id %}" class="btn btn-success mr-2" style="margin-right:25px">Edit</td>  
+              
+            </table>
+        </div>
+        {% endfor %}
+      </div>
+      </div>
+      {% endblock %}

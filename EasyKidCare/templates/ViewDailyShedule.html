@@ -1,0 +1,49 @@
+{% extends 'teacherbase.html'%}
+{% block content %}
+      <h2 class="text-center text-primary ">DAILY SHEDULE</h2>
+      <br>
+      <div class="container">
+        <div class="row">
+            {% for v in DailyShedule %}
+            <div class="col-md-offset-3 col-md-6">
+        <table class="table table-bordered table-striped table-hover m-3">
+           
+		<tr>
+        <th style="width:50%">Activity</th>
+        <td style="width:50%"> {{ v.Activity }} </td>
+        </tr>
+        <tr>
+        <th>Food</th>
+        <td> {{ v.Food }} </td>
+        </tr>
+        <tr>
+        <th>Games</th>
+        <td> {{ v.Games }} </td>
+        </tr>
+        <tr>
+        <th>SleepingTime</th>
+        <td> {{v.SleepingTime}} </td>
+        </tr>	
+        <tr>
+        <th>Date</th>
+        <td> {{v.Date}} </td>
+        </tr>	
+		<tr>
+             <td colspan="2" class="text-center mt-2"> 
+                
+                     
+       <a href="{% url 'DeleteDailyShedule' v.id %}" class="btn btn-danger mb-2" style="margin-right:25px">Delete
+       </a>
+       
+      <a href="{% url 'DailySheduleUpdate' v.id %}" class="btn btn-success mb-2">Edit
+</a>
+
+       </td> 
+        </tr>
+    
+        </table>
+        </div>
+        {% endfor %}
+        </div>
+        </div>
+        {% endblock %}

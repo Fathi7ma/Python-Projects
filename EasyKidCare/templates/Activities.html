@@ -1,0 +1,95 @@
+{% extends 'teacherbase.html'%}
+{% block content %}
+
+    <form method="post" action="{% url 'AddActivitiesAction' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <h2 class="text-center text-primary ">ACTIVITY</h2>
+        <br>
+        <div class="container w-50 mt-2">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <table>
+                        <tr>
+                            <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" name="date" class="form-control" id="date">
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="form-group">
+                                <label for="">Item</label>
+                                <input type="text" name="item" class="form-control" id="item">
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" name="description" class="form-control" id="description">
+                            </div>
+                        <tr>
+                            <div class="form-group">
+                                <tr>
+                                    <div class="form-group">
+                                    <label>File</label>
+                                    <input type="file" name="file" id="file" class="form-control">
+                                    </div>
+                                </tr>
+                            </div>
+                        </tr>
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <input type="submit" value="submit" class="btn btn-primary"
+                                        onclick="return validation()">
+                                </div>
+                        </tr>
+
+                    </table>
+                </div>
+                </div>
+                </div>
+    </form>
+
+{% if messages %}
+{% for msg in messages %}
+<script>
+    alert("{{msg}}")
+</script>
+{% endfor %}
+{% endif %}
+
+<script type="text/javascript">
+    function validation() {
+
+        var alpha = /^[a-zA-Z]+$/;
+        var num = /^[0-9]+$/;
+
+        var Item = document.getElementById('item');
+        var Description = document.getElementById('description');
+        var File = document.getElementById('file');
+        
+
+
+
+
+
+        if (item.value.length == 0) {
+            alert('Enter a Item');
+            return false;
+        }
+        else if (description.value.length == 0) {
+            alert('Enter a Description');
+            return false;
+        }
+        else if (file.value.length == 0) {
+            alert('Enter a File');
+            return false;
+        }
+        
+        else {
+            return true;
+        }
+    }
+</script>
+{% endblock %}

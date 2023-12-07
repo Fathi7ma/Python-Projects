@@ -1,0 +1,33 @@
+{% extends 'parentbase.html'%}
+{% block content %}
+		<h2 class="text-center text-primary ">FOOD SHEDULE</h2>
+      <br>
+      <div class="container">
+        <div class="row">
+            {% for v in food %}
+            <div class="col-md-offset-3 col-md-6">
+            <table class="table table-bordered table-striped table-hover">
+
+         <tr>
+        <th style="width:50%">Date</th>
+        <td style="width:50%"> {{v.Date}} </td>
+        </tr>	  
+		<tr>
+        <th>Snack</th>
+        <td> {{ v.Snack }} </td>
+        </tr>
+        <tr>
+        <th>Lunch</th>
+        <td> {{ v.Lunch }} </td>
+        </tr>
+        <tr>
+        <th>Evening Snack</th>
+        <td> {{ v.Eveningsnack}} </td>
+        </tr>
+		
+</table>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

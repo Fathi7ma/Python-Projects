@@ -1,0 +1,46 @@
+{% extends 'teacherbase.html'%}
+{% block content %}
+		<h2 class="text-center text-primary ">GROWTH DETAILS</h2>
+        <br>
+        <div class="container">
+            <div class="row">
+                {% for v in Growth %}
+                <div class="col-md-offset-3 col-md-6">
+              <table class="table table-bordered table-striped table-hover">
+              
+		<tr>
+        <th style="width:50%">Name</th>
+        <td style="width:50%"> {{ v.Name }} </td>
+        </tr>
+        <tr>
+        <th>Date_of_birth</th>
+        <td> {{ v.Date_of_birth }} </td>
+        </tr>
+        <tr>
+        <th>Birth_reg_no</th>
+        <td> {{ v.Birth_reg_no }} </td>
+        </tr>
+        <tr>
+        <th>Father's Name</th>
+        <td> {{ v.Fathername }} </td>
+        </tr>
+        <tr>
+        <th>Mother's Name</th>
+        <td> {{ v.Mothername }} </td>
+        </tr>	
+        <tr>
+            <th>Family_survey_reg no
+            </th>
+            <td> {{ v.Family_survey_regno }} </td>
+            </tr>	
+	
+	
+
+	
+
+        </table>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'teacherbase.html'%}
+{% block content %}
+		<h2 class="text-center text-primary ">VACCINATION</h2>
+        <br>
+        <div class="container">
+            <div class="row">
+        
+                {% for v in   Vaccination %}
+                <div class="col-md-offset-3 col-md-6">
+              <table class="table table-bordered table-striped table-hover m-3">
+            
+		<tr style="width:50%">
+        <th style="width:50%">Date</th>
+        <td> {{ v.Date }} </td>
+        </tr>
+        <tr>
+        <th>Vaccination Name</th>
+        <td> {{ v.VaccinationName }} </td>
+        </tr>
+        <tr>
+        <th>Place</th>
+        <td> {{ v.Place}} </td>
+	
+	
+
+	
+
+</table>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

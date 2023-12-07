@@ -1,0 +1,42 @@
+{% extends 'teacherbase.html'%}
+{% block content %}
+		<h2 class="text-center text-primary ">EVENT</h2>
+      <br>
+      <div class="container">
+        <div class="row">
+            {% for v in Event %}
+            <div class="col-md-offset-3 col-md-6">
+            <table class="table table-bordered table-striped table-hover">
+          
+		<tr>
+        <th style="width:50%">Event_Name</th>
+        <td style="width:50%"> {{ v.Event_name }} </td>
+        </tr>
+        <tr>
+        <th>Description</th>
+        <td> {{ v.Description }} </td>
+        </tr>
+        <tr>
+        <th>Venue</th>
+        <td> {{ v.Venue}} </td>
+        </tr>
+        <tr>
+        <th>Date</th>
+        <td> {{v.Date}} </td>
+        </tr>
+        <tr>
+        <th>Food</th>
+        <td> {{ v.Food}} </td>
+        </tr>
+		<tr>
+            <td colspan="2" class="text-center"> 
+        <a href="{% url 'DeleteEvent' v.id %}" class="btn btn-danger mr-2" style="margin-right:25px">Delete
+        <a href="{% url 'EventUpdate' v.id %}" class="btn btn-success mr-2">Edit</td>
+	    </tr>
+		
+</table>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

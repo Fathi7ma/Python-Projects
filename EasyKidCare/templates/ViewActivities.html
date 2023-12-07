@@ -1,0 +1,33 @@
+{% extends 'adminbase.html'%}
+{% block content %}
+        <h2 class="text-center text-primary ">ACTIVITY</h2>
+        <br>
+        <div class="container">
+            <div class="row">
+                {% for v in kids %}
+                <div class="col-md-offset-3 col-md-6">
+        
+            <table class="table table-bordered table-striped table-hover">
+                <tr>
+                    <th style="width:50%">Date</th>
+                    <td style="width:50%"> {{v.Date}} </td>
+                    </tr>
+                <tr>
+                    <th>Item</th>
+                    <td> {{ v.Item }} </td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td> {{ v.Description }} </td>
+                </tr>
+                <tr>
+                    <th>File</th>
+                    <td><img src="{{ v.File.url }}" height="100px" width="100px"></td>
+                </tr>
+           
+            </table>
+        </div>
+        {% endfor %}
+      </div>
+      </div>
+      {% endblock %}

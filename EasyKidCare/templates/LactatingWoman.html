@@ -1,0 +1,128 @@
+{% extends 'teacherbase.html'%}
+{% block content %}
+    <form method="post" action="{% url 'LactatingWomanAction' %}">
+        {% csrf_token %}
+        <h2 class="text-center text-primary ">  LACTATING WOMAN'S DETAILS</h2>
+        <br>
+        <div class="container w-50 mt-2">
+
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                    <table>
+                        <tr>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" name="name" class="form-control" id="name">
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="form-group">
+                                <label>Date of Birth</label>
+                                <input type="date" name="dob" class="form-control" id="dob">
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="form-group">
+                                <label>Mobileno</label>
+                                <input type="text" name="Phoneno" class="form-control" id="Phoneno">
+                            </div>
+                        </tr>
+                        <tr>
+                            <div class="form-group">
+                                <label>Delivery Date</label>
+                                <input type="date" name="deliverydate" class="form-control" id="deliverydate">
+                            </div>
+                        </tr>
+                        <tr>
+
+                            <div class="form-group">
+                                <label>Infant Gender</label>
+        
+                                        <input type="radio" name="infantgender" id="infantgender" value="male">Male
+                                        <input type="radio" name="infantgender"  id="infantgender" value="female">Female
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <div class="form-group">
+                                        <label>THR</label>
+                                        <select class="form-control" name="thr">
+                                            <option value="">--select--</option>
+                                            {% for v in thr %}
+                                            <option value="{{v.id}}">{{v.Item}}</option>
+                                                {% endfor %}
+                                            </select>
+                                    </div>
+                                </tr>
+                    
+                        <tr>
+                            <div class="row">
+                                <div class="col-md-12 text-center mt-2">
+                                    <input type="submit" value="submit" class="btn btn-primary"
+                                        onclick="return validation()">
+                                </div>
+                        </tr>
+
+                    </table>
+                    </div>
+                    </div>
+                </div>
+    </form>
+
+{% if messages %}
+{% for msg in messages %}
+<script>
+    alert("{{msg}}")
+</script>
+{% endfor %}
+{% endif %}
+
+<script>
+    function validation() {
+
+        var alpha = /^[a-zA-Z]+$/;
+        var num = /^[0-9]{10}$/;
+
+        var Name = document.getElementById('name');
+        var dob = document.getElementById('dob');
+        var Phoneno = document.getElementById('phoneno');
+        var Deliverydate = document.getElementById('deliverydate');
+        var Infantchild = document.getElementById('infantchild');
+
+
+
+
+
+
+
+        if (name.value.length == 0) {
+            alert('Enter a Name');
+            return false;
+        }
+        else if (dob.value.length == 0) {
+            alert('Enter a Dob');
+            return false;
+        }
+        else if (phoneno.value.length == 0) {
+            alert('Enter a Phone');
+            return false;
+        }
+        else if (!phoneno.value.match(num)) {
+            alert('Vnter a valid Number');
+            phoneno.focus();
+            return false;
+        }
+        else if (deliverydate.value.length == 0) {
+            alert('Enter a Deliverydate');
+            return false;
+        }
+        else if (infantgender.value.length == 0) {
+            alert('Enter a Gender');
+            return false;
+        }
+
+        else {
+            return true;
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'parentbase.html'%}
+{% block content %}
+    <form method="post" action="{% url 'SponsershipUpdateAction' %}" >
+		{% csrf_token %}
+        <h2 class="text-center text-primary ">SPONSERSHIP</h2>
+        <br>
+        <div class="container w-50 mt-2">
+    
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+        
+        <table>
+        {% for v in Sponsership %}
+        <input type="hidden" name="id"  value="{{v.id}}">
+            <tr>
+                <div class="form-group">
+            <label>SponsershipName</label>
+            <input type="text" name="sponser" class="form-control" id="sponser" value="{{v.SponserName}}">
+            </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+            <label>Job</label>
+            <input type="text" name="job" class="form-control" id="job" value="{{v.Job}}">
+            </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+            <label>Address</label>
+            <textarea name="address" id="address" rows="4" cols="4" class="form-control">{{v.Address}}</textarea>
+            </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+            <label>SponsershipItem</label>
+            <input type="text" name="sponseritem" class="form-control" id="job" value="{{v.SponserItem}}">
+            </div>
+            </tr>
+            <tr> 
+                <div class="row">
+                    <div class="col-md-12 text-center mt-4">
+                <input type="submit" class="btn btn-primary" onclick="return validation()" value="update" >
+                </div>
+            {% endfor %}
+            </table>
+            </div>
+            </div>
+            </div>
+            </form>
+           	
+    {% endblock %}

@@ -1,0 +1,188 @@
+{% extends 'teacherbase.html'%}
+{% block content %}
+    <form method="post" action="{% url 'MotherUpdateAction' %}">
+    {% csrf_token %}
+    <h2 class="text-center text-primary ">PREGNANCY WOMAN'S DETAILS</h2>
+    <br>
+    <div class="container w-50 mt-2">
+
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+        <table>
+        {% for v in mother %}
+        <input type="hidden" name="id"  value="{{v.id}}">
+            <tr>
+            <div class="form-group">
+            <label>Mother_name</label>
+            <input type="text" name="mothername"class="form-control" id="mothername" value="{{v.Mother_name}}">
+            </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" name="dob" class="form-control" id="dob">
+                </div>
+            </tr>
+            <tr>
+            <div class="form-group">
+            <label>Details</label>
+            <textarea name="details" class="form-control" id="details" >{{v.Details}}</textarea>
+            </div>
+            </tr>
+            <tr>
+            <div class="form-group">
+            <label>Phoneno</label>
+            <input type="text" name="phoneno" class="form-control" id="phoneno" value="{{v.Phoneno}}">
+            </div>
+            </tr>
+            <tr>
+            <div class="form-group">
+            <label>Address</label>
+            <textarea name="address" class="form-control" id="address" >{{v.Address}}</textarea>
+            </div>
+            </tr>
+            <tr>
+
+                <div class="form-group">
+                    <label>Height</label>
+                    <input type="text" name="height" class="form-control" id="height">
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <label>Weight</label>
+
+                    <input type="text" name="weight" class="form-control" id="weight">
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <label>Hemoglobin</label>
+                    <input type="text" name="hemoglobin" class="form-control" id="hemoglobin">
+
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <label>Nutritions</label>
+                    <select class="form-control" name="nutritious">
+                        <option value="">--select--</option>
+                        {% for v in nutrition %}
+                        <option value="{{v.id}}">{{v.Name}}</option>
+                            {% endfor %}
+                        </select>
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <label>THR</label>
+                    <select class="form-control" name="thr">
+                        <option value="">--select--</option>
+                        {% for v in thr %}
+                        <option value="{{v.id}}">{{v.Item}}</option>
+                            {% endfor %}
+                        </select>
+                </div>
+            </tr>
+            <tr>
+                <div class="row">
+                    <div class="col-md-12 text-center mt-4">
+            <input type="submit"  class="btn btn-primary" onclick="return validation()" value="update" >
+            </div>
+            {% endfor %}
+            </table>
+            </div>
+            </div>
+            </div>
+            </form>
+    
+{% if messages %}
+{% for msg in messages %}
+<script>
+alert("{{msg}}")
+</script>
+{% endfor %}
+{% endif %}
+<script>
+    function validation() {
+
+        var alpha = /^[a-zA-Z]+$/;
+        var num = /^[0-9]{10}$/;
+
+        var Mother_Name = document.getElementById('mothername');
+        var dob = document.getElementById('dob');
+        var Phoneno = document.getElementById('phoneno');
+        var Details = document.getElementById('details');
+        var Address = document.getElementById('address');
+        var Height = document.getElementById('height');
+        var Weight = document.getElementById('weight');
+        var Hemoglobin = document.getElementById('hemoglobin');
+        var Nutrition = document.getElementById('Name');
+        var THR = document.getElementById('Item');
+
+
+
+
+
+
+
+
+
+        if (mothername.value.length == 0) {
+            alert('Enter a Mothername');
+            return false;
+        }
+        else if (dob.value.length == 0) {
+            alert('Enter a Dob');
+            return false;
+        }
+        else if (phoneno.value.length == 0) {
+            alert('Enter a Phone');
+            return false;
+        }
+        else if (!phoneno.value.match(num)) {
+            alert('Enter a Valid Number');
+            phoneno.focus();
+            return false;
+        }
+        else if (details.value.length == 0) {
+            alert('Enter a Details');
+            return false;
+        }
+        else if (address.value.length == 0) {
+            alert('Enter a Address');
+            return false;
+        }
+
+        else if (height.value.length == 0) {
+            alert('Enter a Height');
+            return false;
+        }
+
+        else if (weight.value.length == 0) {
+            alert('Enter a Weight');
+            return false;
+        }
+        
+        else if (hemoglobin.value.length == 0) {
+            alert('Enter a Hemoglobin');
+            return false;
+        }
+         
+        else if (Name.value.length == 0) {
+            alert('Enter a Nutrition');
+            return false;
+        }
+         
+        else if (Item.value.length == 0) {
+            alert('Enter a Thr');
+            return false;
+        }
+
+
+        else {
+            return true;
+        }
+    }
+</script>
+{% endblock %}

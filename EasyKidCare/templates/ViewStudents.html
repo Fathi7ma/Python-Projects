@@ -1,0 +1,66 @@
+{% extends 'teacherbase.html'%}
+{% block content %}
+		<h2 class="text-center text-primary ">STUDENT</h2>
+        <br>
+        <div class="container">
+        <div class="row">
+        
+            {% for v in Student %}
+            <div class="col-md-offset-3 col-md-6">
+              <table class="table table-bordered table-striped table-hover m-3">
+                  <tr style="width:50%">
+                    <td style="width:50%">
+                        <img src="{{v.Image.url}}" height="100px" width="100px">
+                    </td>
+                    <td style="padding: 0rem">
+                        <div class="row"  style="padding: 0.75rem;margin-right: 0px;margin-left: 0px;border: 1px solid #dee2e6">
+                            <div class="col-md-6" style="font-weight: bold;">Name</div>
+                            <div class="col-md-6">{{ v.Name }}</div>
+                        </div>
+                        <div class="row" style="padding: 0.75rem;background-color: #ffffff;;margin-right: 0px;margin-left: 0px;border: 1px solid #dee2e6">
+                            <div class="col-md-6" style="font-weight: bold;">Gender</div>
+                            <div class="col-md-6">{{ v.Gender }}</div>
+                        </div>
+                        <div class="row" style="padding: 0.75rem;;margin-right: 0px;margin-left: 0px;border: 1px solid #dee2e6">
+                            <div class="col-md-6" style="font-weight: bold;" >Age</div>
+                            <div class="col-md-6">{{v.Age}}</div>
+                        </div>
+                    </td>
+                  </tr>
+            <tr>
+                <th>Father's Name</th>
+                <td> {{ v.FatherName }} </td>
+                </tr>
+                    <tr>
+                        <th>Mother's Name</th>
+                        <td> {{ v.MotherName }} </td>
+                        </tr>
+            <tr>
+                <th>ADDRESS</th>
+                <td> {{ v.Address }} </td>
+                </tr>
+            <tr>
+        <th>Phoneno</th>
+        <td> {{ v.Phoneno }}</td>
+        </tr>
+		<tr>
+            <td colspan="2" class="text-center">
+                {% if v.status == 'pending' %}
+            <a href="{% url 'studentapprove' v.id %}"  class="btn btn-success mr-2">Approve</a>
+            {% endif %}
+            {% if v.status == 'pending' %}
+            <a href="{% url 'studentreject' v.id %}" class="btn btn-danger mr-2">Reject</a>
+            {% endif %}
+            <a href="{% url 'ViewsVaccination' v.id %}" class="btn btn-info">View Vaccination</a></td>  
+            
+          
+   
+        </tr>
+	
+
+</table>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

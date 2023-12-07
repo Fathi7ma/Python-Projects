@@ -1,0 +1,164 @@
+{% extends 'commonbase.html'%}
+{% block content %}
+    <form method="post" action="{% url 'StudentUpdateAction' %}" enctype="multipart/form-data">
+		{% csrf_token %}
+        <h2 class="text-center text-primary ">REGISTRATION</h2>
+        <br>
+        <div class="container w-50 mt-2">
+    
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+        
+        <table>
+        {% for v in Student %}
+        <input type="hidden" name="id"  value="{{v.id}}">
+            <tr>
+                <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" id="name" value="{{v.Name}}">
+            </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+            <label>Age</label>
+            <input type="number" name="age" class="form-control" id="age" value="{{v.Age}}">
+            </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+            <label>Image</label>
+            <input type="file" name="file" class="img-thumbnail">
+            <img src="{{v.Image.url}}" height="100px" width="100px">
+            </div>
+            </tr>
+            <div class="form-group">
+            <label>Gender</label>
+            {% if v.gender == 'male' %}
+            <input type ="radio" name="gender"  value="male" checked="true">male
+            <input type="radio" name="gender"  value="female">female
+            {% else %}
+            <input type="radio" name="gender"  value="male">male
+            <input type="radio" name="gender"  value="female" checked="true">female
+            {% endif %}
+            </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <label>Father's Name</label>
+                <input type="text" name="fathername" class="form-control" id="fathername">
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <label>Mother's Name</label>
+                <input type="text" name="mothername" class="form-control" id="mothername">
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                <label>Address</label>
+                <textarea name="address" class="form-control" cols="20" rows="4" id="address"></textarea>
+                </div>
+            <tr>
+                <div class="form-group">
+            <label>Phoneno</label>
+            <input type="text" name="phone" class="form-control" id="phoneno" value="{{v.Phoneno}}">
+            </div>
+            </tr>
+            <tr>
+                <div class="row">
+                    <div class="col-md-12 text-center mt-4">
+                <input type="submit" class="btn btn-primary" onclick="return validation()" value="update" >
+                </div>
+                </div>
+                </tr>
+            {% endfor %}
+            </table>
+            </div>
+            </div>
+            </div>
+            </form>
+            
+    {% if messages %}
+	{% for msg in messages %}
+		<script>
+			alert('{{msg}}')
+		</script>
+	{% endfor %}
+{% endif %}
+<script type="text/javascript">
+    function validation()
+    {
+debugger;
+            var alpha=/^[a-zA-Z]+$/;
+            var num=/^[0-9]{10}$/;
+         
+            var name=document.getElementById('name');
+            var age=document.getElementById('age');
+            var gender=document.myform.gender;
+            var fathername=document.getElementById('fathername');
+            var mothername=document.getElementById('mothername');
+            var address=document.getElementById('address');
+            var phone=document.getElementById('phoneno');
+           
+        
+
+
+
+
+            if(name.value.length==0)
+            {
+                alert('Enter a Name');
+                return false;
+            }
+            else if(!name.value.match(alpha))
+            {
+                alert('Enter a Valid Name');
+                name.focus();
+                return false;
+            }
+            else if(age.value.length==0)
+            {
+                alert('Enter a Age');
+                return false;
+            }
+            else if(gender[0].checked==false && gender[1].checked==false)
+            {
+                alert('Enter a Gender');
+                return false;
+            }
+            else if(phoneno.value.length==0)
+            {
+                alert('Enter a Phone');
+                return false;
+            }
+            else if(!phoneno.value.match(num))
+            {
+                alert('Enter a Valid Number');
+                phoneno.focus();
+                return false;
+            }
+            else if(fathername.value.length==0)
+            {
+                alert('Enter a Fathername');
+                return false;
+            }
+            else if(mothername.value.length==0)
+            {
+                alert('Enter a Mothername');
+                return false;
+            }
+            else if(address.value.length==0)
+            {
+                alert('Enter a Address');
+                return false;
+            }
+            
+          
+        else 	
+            {
+                return true;
+            }
+}
+</script>
+{% endblock %}
